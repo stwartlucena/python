@@ -1,0 +1,42 @@
+#servidor
+import socket
+
+servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #comunicaçao entre cliente e servidor estream
+servidor.bind(('localhost',8888)) #localhost e a maquina -e- 8888 e a porta
+
+servidor.listen()#listen #chama a conexao para se conectar com o cliente e o servidor
+cliente, end = servidor.accept() #aceitar as conexoes para ele
+
+terminado = False
+
+while not terminado:
+    msg = cliente.recv(1024).decode('utf-8')
+    if msg == 'tt':
+        terminado = True
+    else:
+        print(msg)
+    cliente.send(input('Mensagem').encode('utf-8'))
+
+cliente.close()
+servidor.close()
+
+=======================================================================================================================
+
+#cliente
+import socket
+
+cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+cliente.connect(('localhost',8888))#cliente.connect-para se conectar com o servidor
+
+terminado = False
+print('Digite tt para terminar o chat')#pro usuario saber oque tem que fazer para terminar o chat
+
+while not terminado:
+    cliente.send(input('Mensagem: ').encode('utf-8'))
+    msg = cliente.recv(1024).decode('utf-8')
+    if msg == 'tt':
+        terminado = True
+    else:
+        print(msg)
+cliente.close()
