@@ -1,0 +1,42 @@
+import os
+
+
+def processar_resposta(resposta, nome):
+    if resposta == '1':
+        print(
+            f'{os.linesep}{nome} Vale muito apena pois o salario para desenvolvedor e bem valorizado podendo chegar a 10.000 ${os.linesep}')
+
+    elif resposta == '2':
+        print(
+            f'{os.linesep}{nome} O ideal e fazer primeiro um estagio para se familiarizar com o dia dia de um programador.{os.linesep}')
+
+    elif resposta == '3':
+        print(
+            f'{os.linesep}{nome} voce na maioria das vezes nao vai se sentir preparado , por isso e bom fazer primeiro um estagio para adquirir conhecimento e maturidade {os.linesep}')
+
+    elif resposta == '4':
+        print(
+            f'{os.linesep}{nome} Voce pode estudar a traves de videos gratuitos no YouTube, livros e sites de programação.{os.linesep}')
+    else:
+        print(f'{os.linesep}Digite apenas 1,2,3 ou 4{os.linesep}')
+
+
+def start():
+    print('Ola bem-vindo a Lirosmart')  # Apresentar o chatbot
+
+    nome = input('Informe seu nome')  # Pedir o nome
+
+    email = input('Informe seu e-mail')  # Pedir o e-mail
+    while True:
+
+    # Oferecer o menu de opcoes
+        resposta = input(
+        f'O que gostaria de saber hoje?{os.linesep}[1]- Vale a pena aprender python? {os.linesep}[2] - Quanto tempo leva para conseguir um emprego em python?{os.linesep}[3] - quando vou saber se estou BOM o suficiente para conseguir um emprego de programador?{os.linesep} [4] - Onde me recomenda estudar python?{os.linesep}')
+
+    # Processar a resposta enviada
+
+        processar_resposta(resposta, nome)
+
+
+if __name__ == '__main__':
+    start()
